@@ -6,4 +6,5 @@
   <p>Unit Price: <%= p.price %></p>
   <p>Pack Size: <%= p.pack_size %></p>
   <p>Unique Product Code: <%= p.product_code %></p>
+  <p><%= link_to 'Add to Order', add_to_order_product_path(p) %></p>
 <% end %>

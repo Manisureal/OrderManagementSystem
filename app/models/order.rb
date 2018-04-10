@@ -3,7 +3,8 @@ class Order < ApplicationRecord
   has_many :products, through: :order_lines
 
   def total_price
-    products.price * order_lines.quantity
+    order_lines.map { |o| o.product.price * o.quantity }.sum
+    # products.price * order_lines.quantity
   end
 
 end

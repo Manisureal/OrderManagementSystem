@@ -1,10 +1,17 @@
 <h1>All Products</h1>
-
-<% @products.each do |p| %>
-  <p>Name: <%= p.title %></p>
-  <p>Desc: <%= p.description %></p>
-  <p>Unit Price: <%= p.price %></p>
-  <p>Pack Size: <%= p.pack_size %></p>
-  <p>Unique Product Code: <%= p.product_code %></p>
-  <p><%= link_to 'Add to Order', add_to_order_product_path(p) %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div>
+        <% @products.each do |product| %>
+          <p>Name: <%= product.title %></p>
+          <p>Desc: <%= product.description %></p>
+          <p>Unit Price: <%= product.price %></p>
+          <p>Pack Size: <%= product.pack_size %></p>
+          <p>Unique Product Code: <%= product.product_code %></p>
+          <p><%= link_to 'Add to Order', add_to_order_product_path(product) %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+  </tr>
+  <% @order.order_lines.each do |o|  %>
+  <tr>
+    <td><%= o.product.title %></td>
+    <td><%= o.quantity %></td>
+    <td><%= o.product.price %></td>
+    <td><%= (o.product.price * o.quantity) %></td>
+  </tr>
+
+  <% end %>
+  <tr>
+    <td><%= @order.total_price %></td>
+  </tr>
+</table>
+
+
+<style>
+table {
+    /*font-family: arial, sans-serif;*/
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>

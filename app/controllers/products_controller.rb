@@ -4,13 +4,15 @@ class ProductsController < ApplicationController
   end
 
   def add_to_order
-    if session[:order_id].blank?
+    if Order.current_scope.nil?
       order = Order.create(status: "pending")
-      session[:order_id] = order.id
+      order.current_scope = order.id
     else
-      order = Order.find(params[:id])
+      order = Order.current_scope
+      # order = Order.create(status: "pending")
     end
     product = Product.find(params[:id])
+    # order = Order.create(status: "pending")
     order.order_lines.create!(product_id: product.id, quantity: 1)
     redirect_to order_path
   end

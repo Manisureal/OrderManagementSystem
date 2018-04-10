@@ -5,7 +5,7 @@
     <th>Price</th>
     <th>Total</th>
   </tr>
-  <% @order.order_lines.each do |o|  %>
+  <% @order_lines.each do |o|  %>
   <tr>
     <td><%= o.product.title %></td>
     <td><%= o.quantity %></td>
@@ -15,7 +15,7 @@
 
   <% end %>
   <tr>
-    <td><%= @order.total_price %></td>
+    <td><%= current_order.total_price %></td>
   </tr>
 </table>
 
